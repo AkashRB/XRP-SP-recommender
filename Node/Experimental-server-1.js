@@ -1,14 +1,18 @@
+
 var express = require('express'),
      http = require('http');
 
 var hostname = 'localhost';
-var port = 4000;
+var port = 1111;
 
 var app = express();
 
-app.get('/dishes', function(req,res,next){
-    res.end('Will send all the dishes to you!');
+app.get('/history', function (req, res, next) {
+  res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ 'a': 1 }));
+    //res.end('This will show you the buying history');
 });
+  
 app.use(function (req, res, next) {
   console.log(req.headers);
     res.writeHead(200, { 'Content-Type': 'text/html' });
